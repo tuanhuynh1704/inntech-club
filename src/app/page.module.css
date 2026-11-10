@@ -415,16 +415,6 @@
   box-shadow: var(--shadow-md);
 }
 
-.statCard::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--blue-600), var(--cyan-400));
-}
-
 .statValue {
   color: var(--navy-800);
   font-size: clamp(2rem, 2.8vw, 2.6rem);
@@ -749,14 +739,6 @@
     border-color 0.25s ease;
 }
 
-.valueCard::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto;
-  height: 4px;
-  background: linear-gradient(90deg, var(--tone), var(--tone-2));
-}
-
 .valueCard[data-tone="blue"] {
   background: linear-gradient(168deg, #f2f6ff 0%, #ffffff 68%);
 }
@@ -792,10 +774,6 @@
   color: var(--white);
 }
 
-.valueCard:first-child::before {
-  background: linear-gradient(90deg, #35c7f4, #7c86e8, #7fe0ff);
-}
-
 .valueCard:first-child::after {
   content: "";
   position: absolute;
@@ -827,17 +805,17 @@
 
 .valueLetter {
   position: absolute;
-  top: -26px;
-  right: 10px;
+  top: 20px;
+  right: 20px;
   color: transparent;
-  font-size: 7rem;
+  font-size: 4.5rem;
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.06em;
   background: linear-gradient(135deg, var(--tone), var(--tone-2));
   -webkit-background-clip: text;
   background-clip: text;
-  opacity: 0.18;
+  opacity: 0.16;
   pointer-events: none;
 }
 
@@ -855,7 +833,7 @@
 }
 
 .valueBody h3 {
-  padding-right: 34px;
+  padding-right: 64px;
   font-size: 1.1rem;
   letter-spacing: -0.02em;
 }
@@ -2104,6 +2082,7 @@
     max-width: 440px;
     min-height: 380px;
     margin: 0 auto;
+    animation: none;
   }
 
   .logoCard {

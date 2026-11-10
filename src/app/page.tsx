@@ -413,7 +413,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className={styles.heroVisual}>
+            <div className={styles.heroVisual} data-reveal-mobile>
               <div className={styles.orbitOne} aria-hidden="true" />
               <div className={styles.orbitTwo} aria-hidden="true" />
 
