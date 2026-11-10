@@ -4,8 +4,8 @@
   z-index: 100;
   background: rgba(247, 250, 255, 0.68);
   border-bottom: 1px solid rgba(223, 230, 245, 0.55);
-  backdrop-filter: blur(22px) saturate(180%);
   -webkit-backdrop-filter: blur(22px) saturate(180%);
+  backdrop-filter: blur(22px) saturate(180%);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
   transition: background 0.3s ease, box-shadow 0.3s ease,
     border-color 0.3s ease;
@@ -239,5 +239,28 @@
 @media (min-width: 1021px) {
   .mobileNav {
     display: none;
+  }
+}
+
+/* Solid fallback when backdrop-filter is unavailable (older Firefox/Edge,
+   Safari with the effect disabled). Keeps the sticky nav readable over
+   content scrolling underneath it. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .header {
+    background: rgba(247, 250, 255, 0.97);
+  }
+
+  .header.scrolled {
+    background: rgba(248, 251, 255, 1);
+  }
+}
+
+/* Safari / macOS accessibility setting: skip the blur, keep the bar opaque. */
+@media (prefers-reduced-transparency: reduce) {
+  .header,
+  .header.scrolled {
+    background: rgba(247, 250, 255, 0.98);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
 }

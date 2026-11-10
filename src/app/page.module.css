@@ -100,8 +100,8 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 .pulseDot {
@@ -128,6 +128,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 .heroLead {
@@ -176,8 +177,8 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(255, 255, 255, 0.06);
   color: #eaf2ff;
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 .buttonGhost:hover {
@@ -333,8 +334,8 @@
   background: rgba(9, 20, 56, 0.8);
   box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
   color: var(--white);
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   animation: float 6s ease-in-out infinite;
 }
 
@@ -456,6 +457,14 @@
   contain-intrinsic-size: auto 860px;
 }
 
+/* Printing must render every section, otherwise content-visibility can
+   leave later pages blank in Chromium and Firefox. */
+@media print {
+  .lazySection {
+    content-visibility: visible;
+  }
+}
+
 .sectionTint {
   background: linear-gradient(180deg, #f7faff 0%, #f1f6ff 100%);
 }
@@ -534,6 +543,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 .h2Light {
@@ -815,12 +825,15 @@
   background: linear-gradient(135deg, var(--tone), var(--tone-2));
   -webkit-background-clip: text;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
   opacity: 0.16;
   pointer-events: none;
 }
 
 .valueCard:first-child .valueLetter {
-  display: none;
+  /* On the dark card the light gradient needs a little more presence so
+     the I in I-N-N-T-E-C-H reads as clearly as the other letters. */
+  opacity: 0.26;
 }
 
 .valueBody {
@@ -970,6 +983,7 @@
 
 .projectCard:hover {
   transform: translateY(-5px);
+  border-color: var(--project-accent);
   border-color: color-mix(in srgb, var(--project-accent) 38%, white);
   box-shadow: 0 28px 64px rgba(8, 18, 46, 0.14);
 }
@@ -1079,8 +1093,8 @@
   font-weight: 700;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
 
 .projectNumber {
@@ -1601,8 +1615,8 @@
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.09);
-  backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
 
 .communityStats strong {
@@ -1745,8 +1759,8 @@
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
 }
 
 .contactRow {
@@ -2348,5 +2362,43 @@
 
   .awardPills span {
     font-size: 0.66rem;
+  }
+}
+
+/* =========================
+   Legacy browser fallbacks
+   ========================= */
+
+/* Without gradient-text support the background would paint as a solid
+   block behind transparent glyphs, so fall back to flat tinted text. */
+@supports not ((background-clip: text) or (-webkit-background-clip: text)) {
+  .gradientText {
+    background: none;
+    color: var(--cyan-300);
+    -webkit-text-fill-color: currentColor;
+  }
+
+  .h2Accent {
+    background: none;
+    color: var(--blue-600);
+    -webkit-text-fill-color: currentColor;
+  }
+
+  .valueLetter {
+    background: none;
+    color: var(--tone);
+    -webkit-text-fill-color: currentColor;
+  }
+}
+
+/* Windows High Contrast / forced colors would otherwise keep gradient text
+   transparent because the clipped background is removed. */
+@media (forced-colors: active) {
+  .gradientText,
+  .h2Accent,
+  .valueLetter {
+    background: none;
+    color: CanvasText;
+    -webkit-text-fill-color: CanvasText;
   }
 }

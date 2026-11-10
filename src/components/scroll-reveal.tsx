@@ -57,10 +57,20 @@ export default function ScrollReveal() {
     };
 
     observe();
-    mobileViewport.addEventListener("change", observe);
+
+    // Safari < 14 only exposes the deprecated addListener API.
+    if (typeof mobileViewport.addEventListener === "function") {
+      mobileViewport.addEventListener("change", observe);
+    } else {
+      mobileViewport.addListener(observe);
+    }
 
     return () => {
-      mobileViewport.removeEventListener("change", observe);
+      if (typeof mobileViewport.removeEventListener === "function") {
+        mobileViewport.removeEventListener("change", observe);
+      } else {
+        mobileViewport.removeListener(observe);
+      }
       observer?.disconnect();
     };
   }, []);
