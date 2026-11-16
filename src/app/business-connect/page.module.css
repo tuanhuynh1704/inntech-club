@@ -1,0 +1,255 @@
+.partnerGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.partnerCard {
+  min-height: 0;
+}
+
+.partnerHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.countBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 12px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--hub-accent) 12%, white);
+  color: var(--hub-accent);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.pillList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.outcomeList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.outcomeItem {
+  position: relative;
+  padding-left: 26px;
+  color: var(--muted, #5b6785);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.outcomeItem::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--hub-accent) 14%, white);
+  color: var(--hub-accent);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.steps {
+  list-style: none;
+  margin: 40px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  counter-reset: none;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 22px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.stepNumber {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: color-mix(in srgb, var(--hub-accent) 55%, white);
+  text-shadow: 0 0 24px color-mix(in srgb, var(--hub-accent) 40%, transparent);
+}
+
+.stepTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--white, #ffffff);
+}
+
+.stepText {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.caseGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 40px;
+}
+
+.caseCard {
+  border-left: 4px solid var(--hub-accent);
+}
+
+.caseField {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted, #5b6785);
+}
+
+.caseProject {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--hub-ink, #071340);
+}
+
+.caseResult {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #edf1fa;
+  color: var(--hub-ink, #071340);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.caseResultLabel {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--hub-accent);
+  margin-bottom: 4px;
+}
+
+.formBlock {
+  margin-top: 40px;
+}
+
+.asideTitle {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--hub-ink, #071340);
+  margin-bottom: 14px;
+}
+
+.asideList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.asideItem {
+  display: grid;
+  gap: 3px;
+}
+
+.asideLabel {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted, #5b6785);
+}
+
+.asideValue {
+  color: var(--hub-ink, #071340);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+a.asideValue {
+  color: var(--hub-accent);
+  font-weight: 600;
+}
+
+a.asideValue:hover {
+  text-decoration: underline;
+}
+
+.asideNote {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid #edf1fa;
+  color: var(--muted, #5b6785);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .caseGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .partnerGrid,
+  .serviceGrid,
+  .caseGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 360px) {
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .countBadge {
+    min-width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+}

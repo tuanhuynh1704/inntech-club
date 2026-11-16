@@ -438,7 +438,7 @@
 
 .statsNote {
   margin-top: 14px;
-  color: #8a96b2;
+  color: var(--muted);
   font-size: 0.7rem;
   text-align: right;
 }
@@ -632,7 +632,7 @@
 }
 
 .aboutMeta span {
-  color: #8a96b2;
+  color: var(--muted);
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -938,7 +938,7 @@
 }
 
 .pillarIndex {
-  color: #b3bed4;
+  color: var(--muted);
   font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -2402,3 +2402,6 @@
     -webkit-text-fill-color: CanvasText;
   }
 }
+
+.hubsSection { padding-top: clamp(56px, 7vw, 88px); background: radial-gradient(60% 60% at 50% 0%, rgba(47, 107, 255, 0.08), transparent 70%), var(--white); }
+.hubsNote { margin-top: 18px; font-size: 0.82rem; color: var(--muted); text-align: center; }

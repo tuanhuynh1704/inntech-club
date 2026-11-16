@@ -190,3 +190,123 @@ export function Check(props: IconProps) {
     </svg>
   );
 }
+
+export function Search(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <circle cx="11" cy="11" r="7" />
+      <path d="m20 20-3.5-3.5" />
+    </svg>
+  );
+}
+
+export function ChevronDown(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  );
+}
+
+export function Copy(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <rect x="9" y="9" width="11" height="11" rx="2" />
+      <path d="M5 15V5a2 2 0 0 1 2-2h8" />
+    </svg>
+  );
+}
+
+export function ArrowRight(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M5 12h14" />
+      <path d="m13 6 6 6-6 6" />
+    </svg>
+  );
+}
+
+export function BookOpen(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M12 7v14" />
+      <path d="M3 18a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H3Z" />
+      <path d="M21 18a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-5a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h6Z" />
+    </svg>
+  );
+}
+
+export function Briefcase(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <rect x="2" y="7" width="20" height="14" rx="2" />
+      <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+      <path d="M2 12h20" />
+    </svg>
+  );
+}
+
+export function Store(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="m3 9 1.5-5h15L21 9" />
+      <path d="M4 9v11h16V9" />
+      <path d="M9 20v-6h6v6" />
+      <path d="M3 9h18" />
+    </svg>
+  );
+}
+
+export function Handshake(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="m11 12 2 2a1 1 0 0 0 1.4 0l2.6-2.6a2 2 0 0 1 2.8 0l1.2 1.2" />
+      <path d="m11 12-3.1-3.1a2 2 0 0 0-2.8 0L2 12l4 4h4l2 2 3-3" />
+      <path d="m15 15 3 3" />
+    </svg>
+  );
+}
+
+export function Star(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="m12 2 3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2Z" />
+    </svg>
+  );
+}
+
+export function Clock(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3 2" />
+    </svg>
+  );
+}
+
+export function ExternalLink(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M15 3h6v6" />
+      <path d="M10 14 21 3" />
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+    </svg>
+  );
+}
+
+export function Filter(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3Z" />
+    </svg>
+  );
+}
+
+export function CheckCircle(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <circle cx="12" cy="12" r="10" />
+      <path d="m8 12 3 3 5-6" />
+    </svg>
+  );
+}

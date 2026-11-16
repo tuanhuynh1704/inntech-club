@@ -1,0 +1,125 @@
+/* Mentor Hub — page-scoped styles (shared primitives live in hub-ui.module.css) */
+
+.mentorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 20px;
+  margin-top: 40px;
+  align-items: stretch;
+}
+
+.mentorCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+  padding: 22px;
+  background: var(--white, #ffffff);
+  border: 1px solid var(--hub-line, #dfe6f5);
+  border-radius: 22px;
+  box-shadow: var(--shadow-sm, 0 10px 30px rgba(8, 18, 46, 0.06));
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.mentorHead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.mentorName {
+  font-size: 1.06rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--hub-ink);
+}
+
+.mentorRole {
+  margin-top: 4px;
+  color: var(--muted, #5b6785);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.mentorBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mentorLabel {
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted, #5b6785);
+}
+
+.mentorNote {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid #edf1fa;
+  color: var(--muted, #5b6785);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.stepsWrap {
+  margin-top: 40px;
+}
+
+.stepTitle {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--hub-ink);
+}
+
+.stepDesc {
+  color: var(--muted, #5b6785);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.formWrap {
+  margin-top: 28px;
+}
+
+.asideTitle {
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--hub-ink);
+}
+
+.asideList {
+  margin: 0;
+  padding-left: 1.15em;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #3f4c6b;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.asideList li::marker {
+  color: var(--hub-accent);
+  font-weight: 800;
+}
+
+@media (hover: hover) {
+  .mentorCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 60px rgba(8, 18, 46, 0.12);
+  }
+}
+
+@media (max-width: 700px) {
+  .mentorGrid {
+    grid-template-columns: 1fr;
+  }
+}

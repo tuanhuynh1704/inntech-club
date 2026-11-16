@@ -2,7 +2,9 @@ import Image from "next/image";
 import type { CSSProperties } from "react";
 import logo from "@/assets/images/logo_inntech_transparent.png";
 import ScrollReveal from "@/components/scroll-reveal";
-import SiteHeader from "@/components/site-header";
+import HubDirectory from "@/components/hub/hub-directory";
+import { hubs } from "@/data/hubs";
+import { searchEntries } from "@/data/search-index";
 import {
   ArrowDown,
   ArrowUpRight,
@@ -362,11 +364,10 @@ const revealDelay = (index: number): CSSProperties =>
 
 export default function Home() {
   return (
-    <div id="top" className={styles.page}>
-      <SiteHeader />
+    <div className={styles.page}>
       <ScrollReveal />
 
-      <main>
+      <main id="main">
         <section className={styles.hero}>
           <div className={styles.heroGlowA} aria-hidden="true" />
           <div className={styles.heroGlowB} aria-hidden="true" />
@@ -391,8 +392,8 @@ export default function Home() {
               </p>
 
               <div className={styles.heroActions}>
-                <a className={styles.buttonPrimary} href="#gioi-thieu">
-                  Khám phá câu lạc bộ
+                <a className={styles.buttonPrimary} href="#hubs">
+                  Khám phá 10 hub
                   <ArrowDown className={styles.buttonIcon} />
                 </a>
                 <a
@@ -426,7 +427,7 @@ export default function Home() {
                   src={logo}
                   alt="Logo INNTECH CLUB"
                   className={styles.heroLogo}
-                  priority
+                  preload
                 />
                 <div className={styles.logoCardBottom}>
                   <span>TP. Hồ Chí Minh</span>
@@ -454,6 +455,18 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section id="hubs" className={`${styles.section} ${styles.hubsSection}`}>
+          <div className={styles.container}>
+            <div className={styles.sectionHead}>
+              <p className={styles.eyebrow}>Hệ sinh thái INNTECH</p>
+              <h2>10 hub, một nền tảng cho sinh viên.</h2>
+              <p>Tìm kiếm xuyên 10 hub hoặc chọn hub bạn cần.</p>
+            </div>
+            <HubDirectory hubs={hubs} entries={searchEntries} />
+            <p className={styles.hubsNote}>Dữ liệu mẫu được gắn nhãn “Mẫu”; thông tin đang xác minh ghi “Đang cập nhật”.</p>
           </div>
         </section>
 
@@ -981,66 +994,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-
-      <footer className={styles.footer}>
-        <div className={styles.container}>
-          <div className={styles.footerGrid}>
-            <div className={styles.footerBrand}>
-              <a className={styles.footerLogoLink} href="#top">
-                <Image
-                  src={logo}
-                  alt="INNTECH CLUB"
-                  className={styles.footerLogo}
-                  loading="lazy"
-                />
-              </a>
-              <p>
-                Câu lạc bộ Công nghệ và Sáng tạo của Trường Đại học Nguyễn Tất
-                Thành. Kết nối sinh viên, tri thức và nguồn lực để thúc đẩy đổi
-                mới sáng tạo.
-              </p>
-              <span className={styles.footerSlogan}>
-                INNOVATE • CONNECT • INSPIRE
-              </span>
-            </div>
-
-            <div className={styles.footerColumn}>
-              <h3>Khám phá</h3>
-              <a href="#gioi-thieu">Giới thiệu</a>
-              <a href="#gia-tri">Giá trị cốt lõi</a>
-              <a href="#du-an">Dự án</a>
-              <a href="#su-kien">Sự kiện</a>
-            </div>
-
-            <div className={styles.footerColumn}>
-              <h3>Liên hệ</h3>
-              <a href={`mailto:${email}`}>{email}</a>
-              <a href={`tel:${phone.replace(/\s/g, "")}`}>{phone}</a>
-              <span>298A Nguyễn Tất Thành, TP.HCM</span>
-            </div>
-
-            <div className={styles.footerColumn}>
-              <h3>Kết nối</h3>
-              <a
-                href={facebookUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.footerSocial}
-              >
-                <Facebook />
-                Facebook
-              </a>
-              <span>I-Star 2026 · N4015</span>
-              <span>Nhiệm kỳ 2025–2026</span>
-            </div>
-          </div>
-
-          <div className={styles.footerBottom}>
-            <span>© 2026 INNTECH CLUB. All rights reserved.</span>
-            <span>Made with curiosity &amp; collaboration.</span>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

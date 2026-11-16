@@ -1,0 +1,377 @@
+.panel {
+  min-width: 0;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.searchRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.searchIcon {
+  flex-shrink: 0;
+  width: 1.15rem;
+  height: 1.15rem;
+  color: var(--muted);
+}
+
+.searchInput {
+  flex: 1;
+  min-width: 0;
+  padding: 6px 2px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+}
+
+.searchInput::placeholder {
+  color: var(--muted);
+}
+
+.searchInput:focus-visible {
+  outline: none;
+}
+
+.searchInput::-webkit-search-cancel-button {
+  display: none;
+}
+
+.searchRow:focus-within {
+  box-shadow: inset 0 0 0 2px var(--blue-500);
+}
+
+.clearButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.clearButton:hover {
+  background: var(--surface-strong);
+  color: var(--ink);
+}
+
+.clearButton:focus-visible {
+  outline: 2px solid var(--blue-500);
+  outline-offset: 2px;
+}
+
+.kbdHint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  padding: 3px 8px;
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.browse {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 18px 20px 20px;
+}
+
+.hubList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.hubRow {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 10px;
+  border-radius: var(--radius-sm);
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.hubList li:last-child .hubRow {
+  border-bottom: 0;
+}
+
+.hubRow:hover {
+  background: var(--surface);
+}
+
+.hubRow:focus-visible {
+  outline: 2px solid var(--blue-500);
+  outline-offset: 2px;
+}
+
+.hubNumber {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+}
+
+.hubText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.hubName {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.hubTagline {
+  font-size: 0.84rem;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hubArrow {
+  width: 1.1rem;
+  height: 1.1rem;
+  color: var(--blue-600);
+  transition: transform 0.2s ease;
+}
+
+.hubRow:hover .hubArrow {
+  transform: translate(2px, -2px);
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 480px;
+  overflow-y: auto;
+  padding: 14px 14px 16px;
+}
+
+.resultCount {
+  margin: 2px 6px 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 4px 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.group:last-child {
+  border-bottom: 0;
+}
+
+.groupHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 6px;
+}
+
+.groupTitle {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.groupAll {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--blue-600);
+  text-decoration: none;
+}
+
+.groupAll:hover {
+  text-decoration: underline;
+}
+
+.groupAll:focus-visible {
+  outline: 2px solid var(--blue-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.groupAllIcon {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.resultList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.resultItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.resultItem:hover {
+  background: var(--surface);
+}
+
+.resultItem:focus-visible {
+  outline: 2px solid var(--blue-500);
+  outline-offset: 2px;
+}
+
+.resultText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.resultTitle {
+  font-size: 0.92rem;
+  font-weight: 650;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.resultDescription {
+  font-size: 0.8rem;
+  color: var(--muted);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.resultBadge {
+  flex-shrink: 0;
+}
+
+.emptyTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+
+.emptyHint {
+  font-size: 0.84rem;
+  color: var(--muted);
+  margin: 6px 0 12px;
+}
+
+@media (max-width: 768px) {
+  .searchRow {
+    padding: 14px 16px;
+  }
+
+  .browse {
+    padding: 16px 16px 18px;
+  }
+
+  .results {
+    max-height: 60vh;
+  }
+
+  .hubTagline {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 560px) {
+  .searchRow {
+    padding: 12px 14px;
+    gap: 8px;
+  }
+
+  .searchInput {
+    font-size: 0.92rem;
+  }
+
+  .kbdHint {
+    display: none;
+  }
+
+  .browse {
+    padding: 14px 14px 16px;
+  }
+
+  .hubRow {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 10px;
+    padding: 10px 8px;
+  }
+
+  .hubArrow {
+    display: none;
+  }
+
+  .groupHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .resultItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

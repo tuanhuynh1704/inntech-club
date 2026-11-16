@@ -1,0 +1,40 @@
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.withAside {
+  grid-template-columns: minmax(0, 1.6fr) minmax(260px, 1fr);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+}
+
+.successColumn {
+  min-width: 0;
+}
+
+.aside {
+  min-width: 0;
+}
+
+.fieldFull {
+  grid-column: 1 / -1;
+}
+
+.requiredMark {
+  color: var(--blue-600);
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .withAside {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

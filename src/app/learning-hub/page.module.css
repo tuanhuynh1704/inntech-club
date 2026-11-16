@@ -1,0 +1,340 @@
+/* ==========================================================================
+   Learning Hub — page-specific layouts (scoped, no global selectors)
+   Uses hub-ui tokens: --hub-accent, --hub-soft, --hub-ink, --hub-line.
+   ========================================================================== */
+
+.sectionBody {
+  margin-top: 32px;
+}
+
+/* ---------- Slide cards ---------- */
+.slideGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 22px;
+}
+
+.slideCard {
+  gap: 14px;
+}
+
+/* ---------- Video cards ---------- */
+.videoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+  gap: 20px;
+}
+
+.videoCard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  overflow: hidden;
+  background: var(--white, #ffffff);
+  border: 1px solid var(--hub-line);
+  border-radius: 20px;
+  box-shadow: var(--shadow-sm, 0 10px 30px rgba(8, 18, 46, 0.06));
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.videoArt {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      420px 200px at 82% -20%,
+      color-mix(in srgb, var(--hub-accent) 55%, transparent) 0%,
+      transparent 65%
+    ),
+    linear-gradient(155deg, #071340 0%, #0b1e63 55%, var(--hub-accent) 130%);
+}
+
+.videoArt::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 34px 34px;
+  pointer-events: none;
+}
+
+.videoTopic {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 1;
+  padding: 4px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(4, 10, 38, 0.38);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.playButton {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 10px 28px rgba(4, 10, 38, 0.45);
+}
+
+.playGlyph {
+  width: 0;
+  height: 0;
+  margin-left: 3px;
+  border-style: solid;
+  border-width: 10px 0 10px 17px;
+  border-color: transparent transparent transparent var(--hub-accent);
+}
+
+.videoBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+}
+
+.videoFoot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #edf1fa;
+}
+
+.videoSource {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--muted, #5b6785);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-overflow: ellipsis;
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+
+.videoLink {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 6px;
+  color: var(--hub-accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.videoLink svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* ---------- Skill step list ---------- */
+.skillSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.skillStep {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.skillStepText {
+  padding-top: 7px;
+  color: #2c3757;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+/* ---------- Learning paths ---------- */
+.pathGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.pathCard {
+  gap: 14px;
+}
+
+.pathHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.pathDuration {
+  flex-shrink: 0;
+  padding: 6px 13px;
+  border: 1px solid color-mix(in srgb, var(--hub-accent) 18%, white);
+  border-radius: 999px;
+  background: var(--hub-soft);
+  color: var(--hub-ink);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.pathStages {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+  border-left: 2px solid var(--hub-soft);
+}
+
+.pathStage {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 7px 0 7px 14px;
+}
+
+.pathStageNo {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--hub-soft);
+  color: var(--hub-ink);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.pathStageBody {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pathStageBody strong {
+  color: var(--hub-ink);
+  font-size: 0.9rem;
+  letter-spacing: -0.01em;
+}
+
+.pathStageBody span {
+  color: var(--muted, #5b6785);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.pathOutcome {
+  margin-top: auto;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: var(--hub-soft);
+  color: var(--hub-ink);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.pathCta {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  padding: 12px 22px;
+  border: 1px solid var(--hub-line);
+  border-radius: 999px;
+  background: var(--white, #ffffff);
+  color: var(--hub-accent);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.pathCta svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* =========================
+   Hover states (pointer only)
+   ========================= */
+@media (hover: hover) {
+  .videoCard:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--hub-accent) 30%, white);
+    box-shadow: var(--shadow-md, 0 24px 60px rgba(8, 18, 46, 0.1));
+  }
+
+  .videoLink:hover,
+  .pathCta:hover {
+    color: var(--hub-ink);
+  }
+
+  .pathCta:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--hub-accent) 35%, white);
+  }
+}
+
+.videoLink:focus-visible,
+.pathCta:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--hub-accent) 55%, transparent);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* =========================
+   Responsive
+   ========================= */
+@media (max-width: 1024px) {
+  .pathGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .sectionBody {
+    margin-top: 24px;
+  }
+
+  .videoGrid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 100%), 1fr));
+  }
+
+  .pathHead {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

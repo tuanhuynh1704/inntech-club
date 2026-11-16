@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import SiteHeader from "@/components/site-header";
+import SiteFooter from "@/components/site-footer";
 import "./globals.css";
 
 const beVietnam = Be_Vietnam_Pro({
@@ -10,7 +13,10 @@ const beVietnam = Be_Vietnam_Pro({
 });
 
 export const metadata: Metadata = {
-  title: "INNTECH CLUB — Câu lạc bộ Công nghệ và Sáng tạo NTTU",
+  title: {
+    default: "INNTECH CLUB — Câu lạc bộ Công nghệ và Sáng tạo NTTU",
+    template: "%s | INNTECH CLUB",
+  },
   description:
     "INNTECH CLUB là cộng đồng học thuật – khởi nghiệp của sinh viên Trường Đại học Nguyễn Tất Thành, kết nối công nghệ, tri thức và nguồn lực để thúc đẩy đổi mới sáng tạo.",
   keywords: [
@@ -49,7 +55,15 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="vi" className={beVietnam.variable}>
-      <body>{children}</body>
+      <body id="top">
+        <a href="#main" className="skip-link">
+          Bỏ qua nội dung
+        </a>
+        <SiteHeader />
+        {children}
+        <SiteFooter />
+        <Analytics />
+      </body>
     </html>
   );
 }

@@ -1,0 +1,25 @@
+.sectionBody { margin-top: 32px; }
+.twoColGrid { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:22px; }
+@media (max-width: 768px) { .twoColGrid { grid-template-columns: 1fr; } }
+.disclaimerWrap { padding: 18px 0 0; }
+.disclaimer { display:flex; gap:14px; padding:16px 18px; border:1px solid #fcd34d; background:#fff7e6; border-radius:16px; color:#92400e; }
+.disclaimerIcon { width:22px; flex-shrink:0; }
+.disclaimerLink { color:inherit; font-weight:700; text-decoration:underline; }
+.timelineResult { margin-top:8px; font-size:.85rem; color: var(--muted,#5b6785); }
+.timelineResult strong { color: var(--hub-ink, #0b1533); }
+.timelineChips { margin-top:12px; }
+.timelineNote { margin-top:22px; }
+.resultCard { gap:12px; }
+.yearLabel { font-size:.72rem; font-weight:700; letter-spacing:.08em; color: var(--muted,#5b6785); }
+.resultBox { margin-top:auto; padding:10px 12px; border-left:3px solid var(--hub-accent,#2f6bff); background: var(--hub-soft,#eef3ff); border-radius:10px; display:flex; flex-direction:column; gap:2px; }
+.resultLabel { font-size:.62rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color: var(--muted,#5b6785); }
+.resultValue { font-size:.9rem; font-weight:700; color: var(--hub-ink,#0b1533); line-height:1.45; }
+.sampleCard { border-style: dashed; }
+.textLink { display:inline-flex; align-items:center; gap:6px; margin-top:10px; color: var(--hub-accent,#2f6bff); font-size:.85rem; font-weight:700; text-decoration:none; width:fit-content; }
+.textLink svg { width:15px; height:15px; }
+.textLink:hover { text-decoration: underline; }
+.fanpageCta { display:inline-flex; width:fit-content; align-items:center; gap:10px; margin-top:26px; padding:12px 22px; border-radius:999px; background: var(--navy-950,#040a26); color: #fff; font-weight:700; text-decoration:none; }
+.fanpageCta svg { width:17px; height:17px; }
+.textLink:focus-visible, .fanpageCta:focus-visible, .disclaimerLink:focus-visible { outline: 2px solid var(--hub-accent,#2f6bff); outline-offset: 3px; border-radius: 6px; }
+.sampleNote { margin-top:22px; }
+@media (max-width: 560px) { .sectionBody { margin-top: 24px; } }

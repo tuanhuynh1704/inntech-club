@@ -1,0 +1,271 @@
+/* Page-scoped styles for /community. Shared primitives live in
+   hub-ui.module.css (imported as `ui`). Mobile-first; breakpoints 640 / 768 / 1024. */
+
+.leaderGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .leaderGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .leaderGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.profileBody {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.leaderName {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--hub-ink);
+}
+
+.leaderRole {
+  display: inline-flex;
+  width: fit-content;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--hub-soft);
+  color: var(--hub-ink);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.leaderNote {
+  color: var(--muted, #5b6785);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.membersNote {
+  margin: 18px 0 28px;
+  padding-left: 14px;
+  border-left: 3px solid var(--hub-line);
+  color: var(--muted, #5b6785);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.membersNote strong {
+  color: var(--hub-ink);
+}
+
+.departmentGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .departmentGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .departmentGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.departmentCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  background: var(--white, #ffffff);
+  border: 1px solid var(--hub-line);
+  border-radius: 20px;
+  box-shadow: var(--shadow-sm, 0 10px 30px rgba(8, 18, 46, 0.06));
+}
+
+.departmentNumber {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--hub-accent);
+}
+
+.departmentName {
+  font-size: 1.02rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--hub-ink);
+}
+
+.departmentText {
+  color: var(--muted, #5b6785);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.activityPanel {
+  margin-top: 32px;
+  padding: clamp(22px, 4vw, 34px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 26px;
+  background:
+    radial-gradient(
+      620px 320px at 88% -20%,
+      color-mix(in srgb, var(--hub-accent) 34%, transparent) 0%,
+      transparent 65%
+    ),
+    linear-gradient(150deg, #071340 0%, #040a26 100%);
+  color: var(--white, #ffffff);
+  box-shadow: var(--shadow-md, 0 24px 60px rgba(8, 18, 46, 0.1));
+}
+
+.activityEyebrow {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.activityTitle {
+  margin-top: 10px;
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.activityLead {
+  margin-top: 8px;
+  max-width: 60ch;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.activityRows {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.activityRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.activityPlace {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.activityLine {
+  margin-top: 2px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.82rem;
+}
+
+.activityStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.84rem;
+}
+
+.activityStats strong {
+  color: var(--white, #ffffff);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.activitySource {
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+}
+
+.plainList {
+  list-style: none;
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+@media (min-width: 768px) {
+  .stepsGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.stepTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--hub-ink);
+}
+
+.stepDesc {
+  color: var(--muted, #5b6785);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.dateChip {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: auto;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--hub-soft);
+  border: 1px solid color-mix(in srgb, var(--hub-accent) 20%, white);
+  color: var(--hub-ink);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+/* The shared ghost button is styled for navy backgrounds; on this light
+   section its white label would be invisible, so give it an outlined
+   treatment instead. */
+.ctaRow .emailCta {
+  background: transparent;
+  border-color: rgba(22, 56, 168, 0.3);
+  color: var(--blue-700);
+}
+
+.ctaRow .emailCta:hover {
+  background: rgba(47, 107, 255, 0.08);
+  border-color: rgba(22, 56, 168, 0.5);
+  color: var(--blue-700);
+}
