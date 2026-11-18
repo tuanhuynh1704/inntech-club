@@ -30,7 +30,6 @@ const libraryHub: Hub = {
     "Kho tài liệu học tập kết nối Google Drive: duyệt theo môn học, tìm kiếm, xem trước và tải tài liệu ngay trên website.",
   href: "/kho-tai-lieu",
   accent: "#0e7490",
-  icon: "learning",
   sections: [
     { id: "thu-vien", label: "Thư viện" },
     { id: "xem-truoc", label: "Xem trước" },
