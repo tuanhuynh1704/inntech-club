@@ -23,7 +23,6 @@
   border-radius: 22px;
   background: var(--white, #ffffff);
   border: 1px solid var(--hub-line, #e3e9f8);
-  border-top: 4px solid var(--hub-accent);
   box-shadow: var(--shadow-sm, 0 10px 30px rgba(8, 18, 46, 0.06));
 }
 

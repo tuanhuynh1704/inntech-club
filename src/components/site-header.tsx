@@ -44,6 +44,7 @@ export default function SiteHeader() {
 
   const progressRef = useRef<HTMLSpanElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
   const wasDrawerOpenRef = useRef(false);
@@ -138,6 +139,24 @@ export default function SiteHeader() {
 
   const productHubActive = productHubs.some((hub) => pathname === hub.href);
 
+  const openDropdownOnHover = () => {
+    if (dropdownCloseTimerRef.current !== null) {
+      clearTimeout(dropdownCloseTimerRef.current);
+      dropdownCloseTimerRef.current = null;
+    }
+    setDropdownOpen(true);
+  };
+
+  const closeDropdownAfterHover = () => {
+    if (dropdownCloseTimerRef.current !== null) {
+      clearTimeout(dropdownCloseTimerRef.current);
+    }
+    dropdownCloseTimerRef.current = setTimeout(() => {
+      setDropdownOpen(false);
+      dropdownCloseTimerRef.current = null;
+    }, 140);
+  };
+
   return (
     <>
       <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
@@ -174,6 +193,8 @@ export default function SiteHeader() {
                 aria-expanded={dropdownOpen}
                 aria-controls="hubs-dropdown"
                 onClick={() => setDropdownOpen((value) => !value)}
+                onMouseEnter={openDropdownOnHover}
+                onMouseLeave={closeDropdownAfterHover}
               >
                 Hubs
                 <ChevronDown
@@ -183,34 +204,37 @@ export default function SiteHeader() {
                 />
               </button>
 
-              {dropdownOpen && (
-                <div
-                  id="hubs-dropdown"
-                  className={styles.dropdown}
-                  aria-label="Các hub sản phẩm"
-                >
-                  {productHubs.map((hub) => {
-                    const active = pathname === hub.href;
-                    return (
-                      <Link
-                        key={hub.id}
-                        href={hub.href}
-                        className={`${styles.hubItem} ${
-                          active ? styles.active : ""
-                        }`}
-                        aria-current={active ? "page" : undefined}
-                        onClick={() => setDropdownOpen(false)}
-                      >
-                        <span className={styles.hubNumber}>{hub.number}</span>
-                        <span className={styles.hubText}>
-                          <span className={styles.hubName}>{hub.name}</span>
-                          <span className={styles.hubTagline}>{hub.tagline}</span>
-                        </span>
-                      </Link>
-                    );
-                  })}
-                </div>
-              )}
+              <div
+                id="hubs-dropdown"
+                className={`${styles.dropdown} ${
+                  dropdownOpen ? styles.dropdownOpen : ""
+                }`}
+                aria-label="Các hub sản phẩm"
+                aria-hidden={!dropdownOpen}
+                inert={!dropdownOpen}
+                onMouseEnter={openDropdownOnHover}
+                onMouseLeave={closeDropdownAfterHover}
+              >
+                {productHubs.map((hub) => {
+                  const active = pathname === hub.href;
+                  return (
+                    <Link
+                      key={hub.id}
+                      href={hub.href}
+                      className={`${styles.hubItem} ${
+                        active ? styles.active : ""
+                      }`}
+                      aria-current={active ? "page" : undefined}
+                      onClick={() => setDropdownOpen(false)}
+                    >
+                      <span className={styles.hubText}>
+                        <span className={styles.hubName}>{hub.name}</span>
+                        <span className={styles.hubTagline}>{hub.tagline}</span>
+                      </span>
+                    </Link>
+                  );
+                })}
+              </div>
             </div>
 
             {directLinks.map((link) => {
@@ -232,7 +256,7 @@ export default function SiteHeader() {
             <Link
               className={styles.iconButton}
               href="/#hubs"
-              aria-label="Tìm hub"
+              aria-label="Xem danh sách hub"
             >
               <Search className={styles.iconButtonIcon} />
             </Link>
@@ -309,7 +333,6 @@ export default function SiteHeader() {
                   aria-current={active ? "page" : undefined}
                   onClick={() => setDrawerOpen(false)}
                 >
-                  <span className={styles.drawerNumber}>{hub.number}</span>
                   <span className={styles.drawerText}>
                     <span className={styles.drawerName}>
                       {hub.id === "home" ? "Trang chủ" : hub.name}

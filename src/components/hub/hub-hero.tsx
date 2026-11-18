@@ -39,7 +39,7 @@ export default function HubHero({
             <span aria-current="page">{hub.name}</span>
           </nav>
           <span className={styles.eyebrow}>
-            HUB {hub.number} · {hub.shortName.toUpperCase()}
+            {hub.shortName.toUpperCase()}
           </span>
           <h1 className={styles.heroTitle}>{hub.name}</h1>
           <p className={styles.heroTagline}>{hub.tagline}</p>
@@ -76,7 +76,6 @@ export default function HubHero({
           ) : null}
         </div>
         <div className={styles.heroArt} aria-hidden="true">
-          <span className={styles.heroNumber}>{hub.number}</span>
           <span className={styles.metaChip}>INNTECH</span>
           <span className={styles.metaChip}>{hub.shortName}</span>
         </div>

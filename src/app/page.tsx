@@ -4,7 +4,6 @@ import logo from "@/assets/images/logo_inntech_transparent.png";
 import ScrollReveal from "@/components/scroll-reveal";
 import HubDirectory from "@/components/hub/hub-directory";
 import { hubs } from "@/data/hubs";
-import { searchEntries } from "@/data/search-index";
 import {
   ArrowDown,
   ArrowUpRight,
@@ -405,6 +404,16 @@ export default function Home() {
                   Fanpage INNTECH
                   <ArrowUpRight className={styles.buttonIcon} />
                 </a>
+                <button
+                  type="button"
+                  className={styles.buttonDisabled}
+                  disabled
+                  title="Chức năng chưa triển khai"
+                  aria-label="Xem văn phòng 3D — chức năng chưa triển khai"
+                >
+                  Xem văn phòng 3D
+                  <span className={styles.comingSoon}>Sắp ra mắt</span>
+                </button>
               </div>
 
               <div className={styles.heroBadges}>
@@ -463,10 +472,9 @@ export default function Home() {
             <div className={styles.sectionHead}>
               <p className={styles.eyebrow}>Hệ sinh thái INNTECH</p>
               <h2>10 hub, một nền tảng cho sinh viên.</h2>
-              <p>Tìm kiếm xuyên 10 hub hoặc chọn hub bạn cần.</p>
+              <p>Khám phá các không gian học tập, phát triển dự án và kết nối của INNTECH.</p>
             </div>
-            <HubDirectory hubs={hubs} entries={searchEntries} />
-            <p className={styles.hubsNote}>Dữ liệu mẫu được gắn nhãn “Mẫu”; thông tin đang xác minh ghi “Đang cập nhật”.</p>
+            <HubDirectory hubs={hubs} />
           </div>
         </section>
 

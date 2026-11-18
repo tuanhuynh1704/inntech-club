@@ -208,24 +208,6 @@
   min-height: 300px;
 }
 
-.heroNumber {
-  user-select: none;
-  font-size: clamp(6rem, 17vw, 11.5rem);
-  font-weight: 800;
-  line-height: 0.9;
-  letter-spacing: -0.08em;
-  color: transparent;
-  background: linear-gradient(
-    160deg,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(53, 199, 244, 0.18) 55%,
-    rgba(34, 84, 232, 0.1) 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  opacity: 0.9;
-}
-
 .heroGlowA,
 .heroGlowB {
   position: absolute;

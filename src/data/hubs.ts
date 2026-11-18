@@ -11,7 +11,6 @@ export const hubs: Hub[] = [
       "Trang chủ INNTECH với tìm kiếm toàn nền tảng, danh sách 10 hub và các nội dung nổi bật của CLB.",
     href: "/",
     accent: "#071340",
-    icon: "home",
     sections: [
       { id: "hubs", label: "Trang chủ" },
       { id: "gioi-thieu", label: "Giới thiệu" },
@@ -32,7 +31,6 @@ export const hubs: Hub[] = [
       "Công cụ AI, công cụ học tập, mẫu CV, thư viện prompt và template dành cho sinh viên.",
     href: "/student-hub",
     accent: "#2254e8",
-    icon: "student",
     sections: [
       { id: "ai-tools", label: "AI Tools" },
       { id: "study-tools", label: "Study Tools" },
@@ -51,7 +49,6 @@ export const hubs: Hub[] = [
       "Tài liệu, slide, video, nhóm kỹ năng và lộ trình học từ các nguồn uy tín.",
     href: "/learning-hub",
     accent: "#0e7490",
-    icon: "learning",
     sections: [
       { id: "tai-lieu", label: "Tài liệu" },
       { id: "slide", label: "Slide" },
@@ -70,7 +67,6 @@ export const hubs: Hub[] = [
       "Sự kiện, cuộc thi, hackathon, học bổng và việc làm — cơ hội dành cho sinh viên NTTU.",
     href: "/opportunity-hub",
     accent: "#b45309",
-    icon: "opportunity",
     sections: [
       { id: "su-kien", label: "Sự kiện" },
       { id: "cuoc-thi", label: "Cuộc thi" },
@@ -89,7 +85,6 @@ export const hubs: Hub[] = [
       "7 dự án hệ sinh thái của CLB, đội ngũ, thành tích và bản tin tìm cộng sự.",
     href: "/project-hub",
     accent: "#0f766e",
-    icon: "project",
     sections: [
       { id: "du-an", label: "Dự án" },
       { id: "doi-ngu", label: "Đội ngũ" },
@@ -107,7 +102,6 @@ export const hubs: Hub[] = [
       "Kết nối sinh viên với mentor đồng hành dự án — hồ sơ, quy trình và form yêu cầu mentoring.",
     href: "/mentor-hub",
     accent: "#4f46e5",
-    icon: "mentor",
     sections: [
       { id: "mentors", label: "Mentor" },
       { id: "quy-trinh", label: "Quy trình" },
@@ -124,7 +118,6 @@ export const hubs: Hub[] = [
       "Trưng bày sản phẩm thật của hệ sinh thái INNTECH và sản phẩm mẫu của sinh viên, kèm dịch vụ đặt hàng phát triển.",
     href: "/marketplace",
     accent: "#7c3aed",
-    icon: "marketplace",
     sections: [
       { id: "showcase", label: "Showcase" },
       { id: "tools", label: "Tools" },
@@ -143,7 +136,6 @@ export const hubs: Hub[] = [
       "Ban chủ nhiệm, 6 ban chuyên môn, challenge, thành tích và thông tin tuyển thành viên.",
     href: "/community",
     accent: "#be123c",
-    icon: "community",
     sections: [
       { id: "thanh-vien", label: "Thành viên" },
       { id: "challenge", label: "Challenge" },
@@ -161,7 +153,6 @@ export const hubs: Hub[] = [
       "Kết nối doanh nghiệp và trường đối tác với CLB để đặt hàng công nghệ, hợp tác và tài trợ.",
     href: "/business-connect",
     accent: "#0f766e",
-    icon: "business",
     sections: [
       { id: "doi-tac", label: "Đối tác" },
       { id: "dich-vu", label: "Dịch vụ" },
@@ -179,7 +170,6 @@ export const hubs: Hub[] = [
       "Sứ mệnh, tầm nhìn, giá trị I-N-N-T-E-C-H, tổ chức, đối tác và thông tin liên hệ của CLB.",
     href: "/about",
     accent: "#071340",
-    icon: "about",
     sections: [
       { id: "gioi-thieu", label: "Giới thiệu" },
       { id: "gia-tri", label: "Giá trị" },

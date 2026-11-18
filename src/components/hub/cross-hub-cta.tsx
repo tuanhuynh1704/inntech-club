@@ -39,7 +39,6 @@ export default function CrossHubCta({
             href={hub.href}
             className={styles.crossHubCard}
           >
-            <span className={styles.heroNumber}>{hub.number}</span>
             <span className={styles.h2}>{hub.name}</span>
             <span className={styles.lead}>{hub.tagline}</span>
             <span className={styles.buttonIcon}>

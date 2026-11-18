@@ -146,6 +146,21 @@
   border-radius: 20px;
   background: var(--white);
   box-shadow: var(--shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate(-50%, -8px);
+  transition:
+    opacity 180ms ease,
+    transform 240ms cubic-bezier(0.2, 0.75, 0.25, 1),
+    visibility 180ms;
+}
+
+.dropdownOpen {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
 }
 
 .hubItem {
@@ -155,24 +170,20 @@
   min-width: 0;
   padding: 12px 14px;
   border-radius: 14px;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .hubItem:hover {
-  background: var(--surface);
+  transform: translateX(3px);
+  background: var(--surface-strong);
+}
+
+.hubItem:hover .hubName {
+  color: var(--blue-700);
 }
 
 .hubItem.active {
   background: var(--surface-strong);
-}
-
-.hubNumber {
-  flex-shrink: 0;
-  padding-top: 2px;
-  color: var(--blue-600);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
 }
 
 .hubText {
@@ -307,20 +318,11 @@
 }
 
 .drawerLink:hover {
-  background: var(--surface);
+  background: var(--surface-strong);
 }
 
 .drawerLink.active {
   background: var(--surface-strong);
-}
-
-.drawerNumber {
-  flex-shrink: 0;
-  width: 26px;
-  color: var(--blue-600);
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
 }
 
 .drawerText {
@@ -338,6 +340,17 @@
 
 .drawerLink.active .drawerName {
   color: var(--blue-700);
+}
+
+.drawerLink:not(.drawerFeatured):hover .drawerName {
+  color: var(--blue-700);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dropdown,
+  .hubItem {
+    transition: none;
+  }
 }
 
 /* Kho tài liệu — mục nổi bật đầu drawer mobile */

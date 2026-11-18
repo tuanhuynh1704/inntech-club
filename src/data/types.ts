@@ -1,7 +1,3 @@
-export type HubIconKey =
-  | "home" | "student" | "learning" | "opportunity" | "project"
-  | "mentor" | "marketplace" | "community" | "business" | "about";
-
 export type HubSection = { id: string; label: string };
 
 export type Hub = {
@@ -13,7 +9,6 @@ export type Hub = {
   description: string;
   href: string;
   accent: string;
-  icon: HubIconKey;
   sections: HubSection[];
 };
 
