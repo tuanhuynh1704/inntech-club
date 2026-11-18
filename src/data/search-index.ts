@@ -366,6 +366,28 @@ for (const path of learningPaths) {
   });
 }
 
+// --- Kho tài liệu (Google Drive) ---
+add({
+  id: "kho-tai-lieu",
+  title: "Kho tài liệu học tập — Google Drive",
+  description:
+    "Tài liệu, slide, đề cương và video học tập của CLB được đồng bộ từ Google Drive — duyệt theo môn, tìm kiếm, xem trước và tải về.",
+  href: "/kho-tai-lieu",
+  hub: LEARNING,
+  kind: "Tài liệu",
+  keywords: [
+    "kho tài liệu",
+    "thư viện",
+    "google drive",
+    "pdf",
+    "slide",
+    "giáo trình",
+    "đề cương",
+    "tài liệu học tập",
+    "tai lieu",
+  ],
+});
+
 // --- Opportunity Hub ---
 for (const event of events) {
   add({

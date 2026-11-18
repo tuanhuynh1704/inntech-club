@@ -58,6 +58,7 @@ export default function SiteFooter() {
                 {hub.shortName}
               </Link>
             ))}
+            <Link href="/kho-tai-lieu">Kho tài liệu</Link>
           </nav>
 
           <nav className={styles.footerColumn} aria-label="Cộng đồng">

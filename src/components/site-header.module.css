@@ -87,6 +87,7 @@
   font-size: 0.88rem;
   font-weight: 600;
   letter-spacing: -0.01em;
+  white-space: nowrap;
   transition: color 0.2s ease;
 }
 
@@ -339,6 +340,39 @@
   color: var(--blue-700);
 }
 
+/* Kho tài liệu — mục nổi bật đầu drawer mobile */
+.drawerFeatured {
+  gap: 12px;
+  margin-bottom: 8px;
+  border: 1px solid rgba(34, 84, 232, 0.16);
+  background: linear-gradient(
+    135deg,
+    rgba(34, 84, 232, 0.07),
+    rgba(53, 199, 244, 0.12)
+  );
+}
+
+.drawerFeaturedIcon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--blue-700), var(--cyan-400));
+  color: var(--white);
+  box-shadow: 0 8px 18px rgba(34, 84, 232, 0.24);
+}
+
+.drawerFeaturedIcon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.drawerFeatured .drawerName {
+  color: var(--blue-700);
+}
+
 .drawerTagline {
   color: var(--muted);
   font-size: 0.76rem;
@@ -367,11 +401,11 @@
   }
 
   .nav {
-    gap: 12px;
+    gap: 10px;
   }
 
   .navLink {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
   }
 
   .cta {

@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import Link from "next/link";
 import { ArrowUpRight } from "@/components/icons";
 import ScrollReveal from "@/components/scroll-reveal";
 import CrossHubCta from "@/components/hub/cross-hub-cta";
@@ -67,6 +68,10 @@ export default function Page() {
               searchable
               placeholder="Tìm tài liệu, chủ đề..."
             />
+            <Link href="/kho-tai-lieu" className={styles.pathCta}>
+              Mở kho tài liệu trên Google Drive
+              <ArrowUpRight />
+            </Link>
           </div>
         </div>
       </section>

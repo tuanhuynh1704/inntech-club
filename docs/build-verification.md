@@ -1,7 +1,7 @@
 # INNTECH Platform — Build & QA Verification
 
-Ngày: 2026-11-16
-Phạm vi: 10 hub (`/`, `/student-hub`, `/learning-hub`, `/opportunity-hub`, `/project-hub`, `/mentor-hub`, `/marketplace`, `/community`, `/business-connect`, `/about`)
+Ngày: 2026-11-17 (cập nhật cho `/kho-tai-lieu`)
+Phạm vi: 10 hub (`/`, `/student-hub`, `/learning-hub`, `/opportunity-hub`, `/project-hub`, `/mentor-hub`, `/marketplace`, `/community`, `/business-connect`, `/about`) + route tiện ích `/kho-tai-lieu` (không thêm hub thứ 11 vào `src/data/hubs.ts`)
 
 ## 1. Kết quả kiểm tra tĩnh
 
@@ -9,16 +9,20 @@ Phạm vi: 10 hub (`/`, `/student-hub`, `/learning-hub`, `/opportunity-hub`, `/p
 | --- | --- |
 | `npx next typegen` | Types generated successfully |
 | `npx tsc --noEmit` | exit 0, không lỗi |
-| `npm run build` | exit 0, Next.js 16.4.3 (Turbopack), 14/14 static pages |
+| `npm run build` | exit 0, Next.js 16.4.3 (Turbopack), 15/15 static pages |
 | `npm run lint` | exit 0, 0 error, 0 warning |
 | `node tests/verify-platform.js` | 38 check pass, "No problems found." |
+| `node tests/verify-library.js` | 20+ check pass, "No problems found." (gồm behavior test `parseFolderName` / `docTypeFromMime`) |
+| `npm run verify` | chạy tuần tự 3 script trên, tất cả pass |
 
 Route table (rút gọn, tất cả `○ Static`):
 
 ```
-/  /about  /business-connect  /community  /learning-hub
+/  /about  /business-connect  /community  /kho-tai-lieu  /learning-hub
 /marketplace  /mentor-hub  /opportunity-hub  /project-hub  /student-hub
 ```
+
+Ghi chú `/kho-tai-lieu`: build không env prerender trạng thái "chưa cấu hình"; build với env giả (Key/ID sai) prerender trạng thái "Tạm thời gián đoạn" và không crash. Anchor `id="xem-truoc"` luôn có trong HTML prerender ở mọi trạng thái.
 
 ## 2. Visual QA
 
@@ -66,6 +70,7 @@ Route table (rút gọn, tất cả `○ Static`):
 ## 5. Giới hạn đã biết
 
 - Chỉ kiểm trên Chrome; chưa có Safari/Firefox.
+- Trạng thái `ok` của `/kho-tai-lieu` (dữ liệu Drive thật) **chưa smoke-test vì thiếu API key thật** — mới xác nhận `unconfigured`/`error` qua prerender và UI bằng snapshot mock.
 - Mailto và clipboard được xác nhận ở mức href/state, không có mail client thật trong headless.
 - Hai điểm contrast dưới 4.5:1 được giữ có chủ đích: nhãn award trên project card (màu accent theo dự án) và nút fanpage Facebook (màu thương hiệu).
 - Còn 18 class CSS không dùng (footer cũ trong `page.module.css`, một số class trong `hub-ui.module.css`) — nợ kỹ thuật, không ảnh hưởng build.

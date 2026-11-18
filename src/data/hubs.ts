@@ -4,7 +4,7 @@ export const hubs: Hub[] = [
   {
     id: "home",
     number: "01",
-    name: "HOME",
+    name: "Home",
     shortName: "Home",
     tagline: "Trang chủ, tìm kiếm, nội dung nổi bật",
     description:
@@ -25,7 +25,7 @@ export const hubs: Hub[] = [
   {
     id: "student-hub",
     number: "02",
-    name: "STUDENT HUB",
+    name: "Student Hub",
     shortName: "Student Hub",
     tagline: "Bộ công cụ giúp việc học nhẹ hơn.",
     description:
@@ -44,7 +44,7 @@ export const hubs: Hub[] = [
   {
     id: "learning-hub",
     number: "03",
-    name: "LEARNING HUB",
+    name: "Learning Hub",
     shortName: "Learning Hub",
     tagline: "Kho học liệu và lộ trình cho sinh viên.",
     description:
@@ -63,7 +63,7 @@ export const hubs: Hub[] = [
   {
     id: "opportunity-hub",
     number: "04",
-    name: "OPPORTUNITY HUB",
+    name: "Opportunity Hub",
     shortName: "Opportunity",
     tagline: "Cơ hội cho sinh viên NTTU.",
     description:
@@ -82,7 +82,7 @@ export const hubs: Hub[] = [
   {
     id: "project-hub",
     number: "05",
-    name: "PROJECT HUB",
+    name: "Project Hub",
     shortName: "Project Hub",
     tagline: "Không gian dự án của INNTECH.",
     description:
@@ -100,7 +100,7 @@ export const hubs: Hub[] = [
   {
     id: "mentor-hub",
     number: "06",
-    name: "MENTOR HUB",
+    name: "Mentor Hub",
     shortName: "Mentor Hub",
     tagline: "Mạng lưới mentor đồng hành dự án.",
     description:
@@ -117,7 +117,7 @@ export const hubs: Hub[] = [
   {
     id: "marketplace",
     number: "07",
-    name: "TECH MARKETPLACE",
+    name: "Tech Marketplace",
     shortName: "Marketplace",
     tagline: "Chợ sản phẩm công nghệ của sinh viên.",
     description:
@@ -136,7 +136,7 @@ export const hubs: Hub[] = [
   {
     id: "community",
     number: "08",
-    name: "COMMUNITY",
+    name: "Community",
     shortName: "Community",
     tagline: "Cộng đồng thành viên INNTECH.",
     description:
@@ -154,7 +154,7 @@ export const hubs: Hub[] = [
   {
     id: "business-connect",
     number: "09",
-    name: "BUSINESS CONNECT",
+    name: "Business Connect",
     shortName: "Business Connect",
     tagline: "Kết nối doanh nghiệp với INNTECH.",
     description:
@@ -172,7 +172,7 @@ export const hubs: Hub[] = [
   {
     id: "about",
     number: "10",
-    name: "ABOUT INNTECH",
+    name: "About Inntech",
     shortName: "About",
     tagline: "Giới thiệu câu lạc bộ INNTECH.",
     description:

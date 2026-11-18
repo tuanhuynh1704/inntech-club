@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import logo from "@/assets/images/logo_inntech_transparent.png";
 import { hubs } from "@/data/hubs";
 import { facebookUrl } from "@/data/site";
-import { ArrowUpRight, ChevronDown, Menu, Search, X } from "./icons";
+import { ArrowUpRight, BookOpen, ChevronDown, Menu, Search, X } from "./icons";
 import styles from "./site-header.module.css";
 
 const productHubIds = [
@@ -22,6 +22,8 @@ const productHubIds = [
 const productHubs = hubs.filter((hub) => productHubIds.includes(hub.id));
 
 const directLinks = [
+  { label: "Trang chủ", href: "/" },
+  { label: "Kho tài liệu", href: "/kho-tai-lieu" },
   { label: "Community", href: "/community" },
   { label: "Doanh nghiệp", href: "/business-connect" },
   { label: "Về CLB", href: "/about" },
@@ -269,6 +271,25 @@ export default function SiteHeader() {
       {drawerOpen && (
         <div id="mobile-navigation" className={styles.drawer} ref={drawerRef}>
           <nav className={styles.drawerNav} aria-label="Điều hướng di động">
+            <Link
+              href="/kho-tai-lieu"
+              className={`${styles.drawerLink} ${styles.drawerFeatured} ${
+                pathname === "/kho-tai-lieu" ? styles.active : ""
+              }`}
+              aria-current={pathname === "/kho-tai-lieu" ? "page" : undefined}
+              onClick={() => setDrawerOpen(false)}
+            >
+              <span className={styles.drawerFeaturedIcon} aria-hidden="true">
+                <BookOpen />
+              </span>
+              <span className={styles.drawerText}>
+                <span className={styles.drawerName}>Kho tài liệu</span>
+                <span className={styles.drawerTagline}>
+                  Tài liệu học tập từ Google Drive
+                </span>
+              </span>
+            </Link>
+
             {hubs.map((hub) => {
               const active = pathname === hub.href;
               return (
@@ -283,7 +304,9 @@ export default function SiteHeader() {
                 >
                   <span className={styles.drawerNumber}>{hub.number}</span>
                   <span className={styles.drawerText}>
-                    <span className={styles.drawerName}>{hub.name}</span>
+                    <span className={styles.drawerName}>
+                      {hub.id === "home" ? "Trang chủ" : hub.name}
+                    </span>
                     <span className={styles.drawerTagline}>{hub.tagline}</span>
                   </span>
                 </Link>
