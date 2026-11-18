@@ -22,7 +22,6 @@ const productHubIds = [
 const productHubs = hubs.filter((hub) => productHubIds.includes(hub.id));
 
 const directLinks = [
-  { label: "Trang chủ", href: "/" },
   { label: "Kho tài liệu", href: "/kho-tai-lieu" },
   { label: "Community", href: "/community" },
   { label: "Doanh nghiệp", href: "/business-connect" },
@@ -158,6 +157,14 @@ export default function SiteHeader() {
           </Link>
 
           <nav className={styles.nav} aria-label="Điều hướng chính">
+            <Link
+              href="/"
+              className={`${styles.navLink} ${pathname === "/" ? styles.active : ""}`}
+              aria-current={pathname === "/" ? "page" : undefined}
+            >
+              Trang chủ
+            </Link>
+
             <div className={styles.navItem} ref={dropdownRef}>
               <button
                 type="button"
