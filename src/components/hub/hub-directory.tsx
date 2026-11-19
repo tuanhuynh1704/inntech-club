@@ -10,7 +10,7 @@ type HubDirectoryProps = {
 
 export default function HubDirectory({ hubs }: HubDirectoryProps) {
   return (
-    <div className={styles.grid}>
+    <div className={styles.grid} data-reveal-stagger>
       {hubs.map((hub) => {
         return (
           <Link

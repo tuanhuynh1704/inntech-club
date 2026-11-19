@@ -27,7 +27,6 @@ dist/
 .turbo/
 specs
 docs
-tests
 
 # ------------------------------------------------------------------------------
 # TypeScript Cache & Auto-generated Files

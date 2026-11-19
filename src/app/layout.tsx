@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Be_Vietnam_Pro } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -63,6 +64,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SiteHeader />
         {children}
         <SiteFooter />
+        <Script id="reveal-failsafe" strategy="beforeInteractive">{`(function(){window.__revealFailsafeTimer=window.setTimeout(function(){if(document.documentElement.dataset.revealActive!=="1"){document.documentElement.classList.add("reveal-fallback")}},3000)})();`}</Script>
         <Analytics />
         <SpeedInsights />
       </body>

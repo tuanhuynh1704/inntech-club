@@ -182,7 +182,7 @@ export default function StudentHubPage() {
             title="Prompt Library — sao chép và dùng ngay"
             description="Prompt mẫu chia theo nhóm: Học tập, Viết, Code, Nghiên cứu và CV."
           />
-          <div className={styles.promptGrid}>
+          <div className={styles.promptGrid} data-reveal-stagger>
             {prompts.map((prompt) => (
               <PromptCard key={prompt.id} prompt={prompt} />
             ))}
@@ -200,7 +200,7 @@ export default function StudentHubPage() {
             title="Templates — slide, báo cáo, project brief"
             description="Mẫu slide trình bày, báo cáo và brief dự án. Nếu chưa có file chính thức, thẻ sẽ ghi “Sắp cập nhật” thay vì liên kết giả."
           />
-          <div className={ui.gridThree}>
+          <div className={ui.gridThree} data-reveal-stagger>
             {templates.map((item) => (
               <ExternalCard
                 key={item.id}

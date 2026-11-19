@@ -59,13 +59,9 @@ export default function Page() {
             title="Mentor Profile"
             description="5 mentor đồng hành cùng các dự án EaAgri và DIA+ (theo THONGTIN §7.1, §7.3). Chỉ hiển thị dự án đồng hành và vai trò “Mentor dự án”; không hiển thị chức danh, công ty hay ảnh khi chưa có nguồn."
           />
-          <div className={styles.mentorGrid}>
+          <div className={styles.mentorGrid} data-reveal-stagger>
             {mentors.map((mentor) => (
-              <article
-                key={mentor.id}
-                className={styles.mentorCard}
-                data-reveal
-              >
+              <article key={mentor.id} className={styles.mentorCard}>
                 <div className={styles.mentorHead}>
                   <span className={ui.avatar} aria-hidden="true">
                     {mentor.initials}
@@ -117,9 +113,9 @@ export default function Page() {
             description="Từ yêu cầu ban đầu tới kết nối mentor và theo dõi tiến độ."
           />
           <div className={styles.stepsWrap}>
-            <div className={ui.steps}>
+            <div className={ui.steps} data-reveal-stagger>
               {mentoringSteps.map((step) => (
-                <div key={step.number} className={ui.step} data-reveal>
+                <div key={step.number} className={ui.step}>
                   <span className={ui.stepNumber}>{step.number}</span>
                   <h3 className={styles.stepTitle}>{step.title}</h3>
                   <p className={styles.stepDesc}>{step.description}</p>

@@ -28,7 +28,7 @@ export default function CrossHubCta({
   }
 
   return (
-    <section className={styles.crossHub}>
+    <section className={styles.crossHub} data-reveal>
       <span className={styles.eyebrow}>Khám phá tiếp</span>
       <h2 className={styles.h2}>{title ?? "Các hub liên quan"}</h2>
       {description ? <p className={styles.lead}>{description}</p> : null}

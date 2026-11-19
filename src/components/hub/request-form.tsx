@@ -166,7 +166,10 @@ export default function RequestForm({
   };
 
   return (
-    <div className={`${styles.split}${aside ? ` ${styles.withAside}` : ""}`}>
+    <div
+      className={`${styles.split}${aside ? ` ${styles.withAside}` : ""}`}
+      data-reveal
+    >
       {submitted ? (
         <div className={styles.successColumn}>
           <div className={shared.formSuccess} role="status">

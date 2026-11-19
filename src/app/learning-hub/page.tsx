@@ -88,7 +88,7 @@ export default function Page() {
             description="Các slide workshop đã được tổ chức và mẫu slide trình bày. File chưa được chuẩn hóa sẽ ghi «Sắp cập nhật» thay vì tạo liên kết file giả."
           />
           <div className={styles.sectionBody}>
-            <div className={styles.slideGrid}>
+            <div className={styles.slideGrid} data-reveal-stagger>
               {slides.map((slide) => (
                 <article key={slide.id} className={`${ui.card} ${styles.slideCard}`}>
                   {slide.badge ? (
@@ -143,7 +143,7 @@ export default function Page() {
             description="Kênh YouTube chính thức để học lập trình, thiết kế và khoa học dữ liệu. Thẻ hiển thị ảnh gradient + biểu tượng phát, không nhúng iframe để tránh chậm trang."
           />
           <div className={styles.sectionBody}>
-            <div className={styles.videoGrid}>
+            <div className={styles.videoGrid} data-reveal-stagger>
               {videos.map((video) => (
                 <article key={video.id} className={styles.videoCard}>
                   <div className={styles.videoArt} aria-hidden="true">
@@ -191,7 +191,7 @@ export default function Page() {
             description="Sáu nhóm kỹ năng cốt lõi, mỗi nhóm đi theo 3 bước từ nhập môn đến thực hành."
           />
           <div className={styles.sectionBody}>
-            <div className={ui.gridThree}>
+            <div className={ui.gridThree} data-reveal-stagger>
               {skillGroups.map((group) => (
                 <article key={group.id} className={ui.card}>
                   <h3 className={ui.cardTitle}>{group.title}</h3>
@@ -220,7 +220,7 @@ export default function Page() {
             description="Mỗi lộ trình gồm 4–5 chặng, đi từ nền tảng đến một dự án hoàn chỉnh. Thời lượng là ước tính, có thể điều chỉnh theo nhịp học của bạn."
           />
           <div className={styles.sectionBody}>
-            <div className={styles.pathGrid}>
+            <div className={styles.pathGrid} data-reveal-stagger>
               {learningPaths.map((path) => (
                 <article key={path.id} className={`${ui.card} ${styles.pathCard}`}>
                   <div className={styles.pathHead}>

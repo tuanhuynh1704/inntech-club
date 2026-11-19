@@ -32,7 +32,7 @@ export default function HubHero({
       <span className={styles.heroGlowB} aria-hidden="true" />
       <span className={styles.heroGridPattern} aria-hidden="true" />
       <div className={`${styles.container} ${styles.heroInner}`}>
-        <div className={styles.heroCopy}>
+        <div className={styles.heroCopy} data-hero>
           <nav className={styles.breadcrumb} aria-label="Breadcrumb">
             <Link href="/">Trang chủ</Link>
             <span aria-hidden="true">/</span>
@@ -75,7 +75,7 @@ export default function HubHero({
             </div>
           ) : null}
         </div>
-        <div className={styles.heroArt} aria-hidden="true">
+        <div className={styles.heroArt} data-hero-visual aria-hidden="true">
           <span className={styles.metaChip}>INNTECH</span>
           <span className={styles.metaChip}>{hub.shortName}</span>
         </div>

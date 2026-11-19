@@ -58,7 +58,7 @@ export default function Page() {
             title="Giới thiệu — sứ mệnh, tầm nhìn, lịch sử"
             description="Câu lạc bộ Công nghệ và Sáng tạo của Trường Đại học Nguyễn Tất Thành, hoạt động dưới sự quản lý của NIIC và NIIE từ năm 2025."
           />
-          <div className={styles.introProse}>
+          <div className={styles.introProse} data-reveal>
             <p>
               INNTECH CLUB là câu lạc bộ Công nghệ và Sáng tạo của Trường Đại
               học Nguyễn Tất Thành (NTTU), hoạt động dưới sự quản lý của NIIC
@@ -73,7 +73,7 @@ export default function Page() {
             </p>
           </div>
 
-          <div className={styles.missionVision}>
+          <div className={styles.missionVision} data-reveal-stagger>
             <article className={styles.mvCard}>
               <span className={styles.mvLabel}>Sứ mệnh</span>
               <p className={styles.mvText}>
@@ -97,7 +97,7 @@ export default function Page() {
             </article>
           </div>
 
-          <dl className={styles.stats}>
+          <dl className={styles.stats} data-reveal-stagger>
             {aboutStats.map((stat) => (
               <div key={stat.label} className={styles.stat}>
                 <dt className={styles.statValue}>{stat.value}</dt>
@@ -109,7 +109,7 @@ export default function Page() {
 
           <div className={styles.timelineBlock}>
             <h3 className={styles.timelineHeading}>Mốc thời gian</h3>
-            <ol className={styles.timeline}>
+            <ol className={styles.timeline} data-reveal-stagger>
               {timeline.map((item) => (
                 <li key={`${item.date}-${item.title}`} className={styles.timelineItem}>
                   <span className={styles.timelineDate}>{item.date}</span>
@@ -135,7 +135,7 @@ export default function Page() {
             title="Giá trị I-N-N-T-E-C-H"
             description="7 chữ cái định hình văn hóa và cách INNTECH hoạt động."
           />
-          <ul className={styles.valuesGrid}>
+          <ul className={styles.valuesGrid} data-reveal-stagger>
             {values.map((value) => (
               <li
                 key={`${value.letter}-${value.name}`}
@@ -167,7 +167,7 @@ export default function Page() {
             title="Tổ chức — ban chủ nhiệm 2025–2026 và các ban"
             description="Ban Chủ nhiệm nhiệm kỳ 2025–2026 và 6 ban chuyên môn phụ trách các mảng hoạt động của CLB."
           />
-          <ul className={styles.leaderGrid}>
+          <ul className={styles.leaderGrid} data-reveal-stagger>
             {leaders.map((leader) => (
               <li key={leader.name} className={styles.leaderCard}>
                 <span className={styles.avatar} aria-hidden="true">
@@ -183,7 +183,7 @@ export default function Page() {
           </ul>
 
           <h3 className={styles.deptHeading}>6 ban chuyên môn</h3>
-          <ul className={styles.deptGrid}>
+          <ul className={styles.deptGrid} data-reveal-stagger>
             {departments.map((department) => (
               <li key={department.number} className={styles.deptCard}>
                 <span className={styles.deptNumber} aria-hidden="true">
@@ -208,7 +208,7 @@ export default function Page() {
             title="Đối tác — doanh nghiệp và trường đại học"
             description="Danh sách thật theo hồ sơ I-Star 2026, phân nhóm. CLB không sử dụng logo giả."
           />
-          <div className={styles.partnerGrid}>
+          <div className={styles.partnerGrid} data-reveal-stagger>
             {partnerGroups.map((group) => (
               <article key={group.id} className={`${ui.card} ${styles.partnerCard}`}>
                 <div className={styles.partnerHead}>
@@ -240,7 +240,7 @@ export default function Page() {
             title="Liên hệ — thông tin CLB"
             description="Mọi thông tin chính thức của INNTECH CLUB đều được cập nhật trên fanpage Facebook."
           />
-          <div className={styles.contactGrid}>
+          <div className={styles.contactGrid} data-reveal-stagger>
             <article className={styles.contactCard}>
               <span className={styles.istarBadge}>I-Star 2026 · Mã số N4015</span>
               <ul className={styles.contactList}>

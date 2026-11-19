@@ -100,7 +100,7 @@ export default function Page() {
             description="Các sự kiện thật của CLB đã tổ chức hoặc đồng hành cùng cộng đồng sinh viên NTTU."
           />
           <div className={styles.sectionBody}>
-            <div className={ui.timeline}>
+            <div className={ui.timeline} data-reveal-stagger>
               {events.map((event) => (
                 <article key={event.id} className={ui.timelineItem}>
                   <div className={ui.timelineDate}>
@@ -162,7 +162,7 @@ export default function Page() {
             description="Các cuộc thi CLB tham gia và kết quả của đội tuyển INNTECH."
           />
           <div className={styles.sectionBody}>
-            <div className={ui.gridThree}>
+            <div className={ui.gridThree} data-reveal-stagger>
               {competitions.map((item) => (
                 <article key={item.id} className={`${ui.card} ${styles.resultCard}`}>
                   <div className={ui.cardTop}>
@@ -215,7 +215,7 @@ export default function Page() {
             description="Các hackathon INNTECH tham gia và vị trí tiếp theo đang được cập nhật."
           />
           <div className={styles.sectionBody}>
-            <div className={styles.twoColGrid}>
+            <div className={styles.twoColGrid} data-reveal-stagger>
               {hackathons.map((item) => {
                 const isSample = item.status === "sample" || item.sample === true;
                 return (
@@ -282,7 +282,7 @@ export default function Page() {
             description="Dữ liệu mẫu, không khẳng định thông tin tuyển học bổng thật. Theo dõi fanpage để nhận thông báo khi có chương trình chính thức."
           />
           <div className={styles.sectionBody}>
-            <div className={styles.twoColGrid}>
+            <div className={styles.twoColGrid} data-reveal-stagger>
               {scholarships.map((item) => (
                 <article
                   key={item.id}
@@ -339,7 +339,7 @@ export default function Page() {
             description="Dữ liệu mẫu, không dùng tên công ty thật cho tuyển dụng mẫu. Theo dõi fanpage để nhận thông báo khi có vị trí chính thức."
           />
           <div className={styles.sectionBody}>
-            <div className={styles.twoColGrid}>
+            <div className={styles.twoColGrid} data-reveal-stagger>
               {jobs.map((item) => (
                 <article
                   key={item.id}

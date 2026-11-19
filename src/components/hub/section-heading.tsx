@@ -21,7 +21,7 @@ export default function SectionHeading({
   id,
 }: SectionHeadingProps) {
   return (
-    <div className={styles.sectionHead} id={id}>
+    <div className={styles.sectionHead} id={id} data-reveal>
       {eyebrow ? <span className={styles.eyebrow}>{eyebrow}</span> : null}
       <h2 className={styles.h2}>{title}</h2>
       {description ? <p className={styles.lead}>{description}</p> : null}

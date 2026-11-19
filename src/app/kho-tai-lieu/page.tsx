@@ -145,6 +145,7 @@ export default function Page() {
           <div
             id="xem-truoc"
             className={`${styles.sectionBody} ${styles.libraryAnchor}`}
+            data-reveal
           >
             <Suspense fallback={<LibrarySkeleton />}>
               <LibraryData />

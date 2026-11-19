@@ -24,6 +24,20 @@
   --radius-sm: 14px;
   --max-width: 1200px;
   --header-h: 76px;
+  --reveal-duration: 700ms;
+  --reveal-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --reveal-shift: 30px;
+  --reveal-shift-mobile: 32px;
+  --reveal-shift-x: 36px;
+  --reveal-scale: 0.94;
+  --reveal-stagger: 70ms;
+  --reveal-delay-cap: 420ms;
+  --reveal-hero-duration: 700ms;
+  --reveal-hero-shift: 12px;
+  --reveal-hero-stagger: 60ms;
+  --reveal-hero-delay-cap: 240ms;
+  --reveal-hero-title-opacity: 0.3;
+  --reveal-hero-visual-opacity: 0.6;
 }
 
 @media (max-width: 768px) {
@@ -160,49 +174,247 @@ svg {
    ========================= */
 
 @media (scripting: enabled) {
-  [data-reveal] {
+  [data-reveal]:not(.is-revealed) {
     opacity: 0;
-    transform: translate3d(0, 30px, 0);
-    transition: opacity 1.05s cubic-bezier(0.22, 0.61, 0.36, 1),
-      transform 1.05s cubic-bezier(0.22, 0.61, 0.36, 1);
-    transition-delay: var(--reveal-delay, 0ms);
+    transform: translate3d(0, var(--reveal-shift), 0);
     will-change: opacity, transform;
   }
 
-  [data-reveal="left"] {
-    transform: translate3d(-36px, 0, 0);
+  [data-reveal="left"]:not(.is-revealed) {
+    transform: translate3d(calc(var(--reveal-shift-x) * -1), 0, 0);
   }
 
-  [data-reveal="right"] {
-    transform: translate3d(36px, 0, 0);
+  [data-reveal="right"]:not(.is-revealed) {
+    transform: translate3d(var(--reveal-shift-x), 0, 0);
   }
 
-  [data-reveal="scale"] {
-    transform: scale(0.94);
+  [data-reveal="scale"]:not(.is-revealed) {
+    transform: scale(var(--reveal-scale));
+  }
+
+  [data-reveal-stagger]:not(.is-revealed) > * {
+    opacity: 0;
+    transform: translate3d(0, var(--reveal-shift), 0);
+    will-change: opacity, transform;
+  }
+}
+
+/* Keyframes instead of transitions: a card's own hover transition would
+   otherwise override the reveal timing. `backwards` keeps items hidden
+   during their stagger delay and stops applying once the rise completes. */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  @keyframes revealRise {
+    from {
+      opacity: 0;
+      transform: translate3d(0, var(--reveal-shift), 0);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes revealFromLeft {
+    from {
+      opacity: 0;
+      transform: translate3d(calc(var(--reveal-shift-x) * -1), 0, 0);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes revealFromRight {
+    from {
+      opacity: 0;
+      transform: translate3d(var(--reveal-shift-x), 0, 0);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes revealFromScale {
+    from {
+      opacity: 0;
+      transform: scale(var(--reveal-scale));
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
   }
 
   [data-reveal].is-revealed {
-    opacity: 1;
-    transform: none;
-    will-change: auto;
+    animation: revealRise var(--reveal-duration) var(--reveal-ease) backwards;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+
+  [data-reveal="left"].is-revealed {
+    animation-name: revealFromLeft;
+  }
+
+  [data-reveal="right"].is-revealed {
+    animation-name: revealFromRight;
+  }
+
+  [data-reveal="scale"].is-revealed {
+    animation-name: revealFromScale;
+  }
+
+  [data-reveal-stagger].is-revealed > * {
+    animation: revealRise var(--reveal-duration) var(--reveal-ease) backwards;
+  }
+
+  [data-reveal-stagger] > *:nth-child(2) {
+    animation-delay: calc(var(--reveal-stagger) * 1);
+  }
+
+  [data-reveal-stagger] > *:nth-child(3) {
+    animation-delay: calc(var(--reveal-stagger) * 2);
+  }
+
+  [data-reveal-stagger] > *:nth-child(4) {
+    animation-delay: calc(var(--reveal-stagger) * 3);
+  }
+
+  [data-reveal-stagger] > *:nth-child(5) {
+    animation-delay: calc(var(--reveal-stagger) * 4);
+  }
+
+  [data-reveal-stagger] > *:nth-child(6) {
+    animation-delay: calc(var(--reveal-stagger) * 5);
+  }
+
+  [data-reveal-stagger] > *:nth-child(7) {
+    animation-delay: calc(var(--reveal-stagger) * 6);
+  }
+
+  [data-reveal-stagger] > *:nth-child(n+8) {
+    animation-delay: var(--reveal-delay-cap);
   }
 }
 
 /* On phones the hero visual sits below the fold, so reveal it only after
    it is scrolled into view instead of animating it during page load. */
 @media (scripting: enabled) and (max-width: 760px) {
-  [data-reveal-mobile] {
+  [data-reveal-mobile]:not(.is-revealed) {
     opacity: 0;
-    transform: translate3d(0, 32px, 0);
-    transition: opacity 1.05s cubic-bezier(0.22, 0.61, 0.36, 1),
-      transform 1.05s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transform: translate3d(0, var(--reveal-shift-mobile), 0);
     will-change: opacity, transform;
+  }
+}
+
+@media (scripting: enabled) and (max-width: 760px) and (prefers-reduced-motion: no-preference) {
+  @keyframes revealMobileRise {
+    from {
+      opacity: 0;
+      transform: translate3d(0, var(--reveal-shift-mobile), 0);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
   }
 
   [data-reveal-mobile].is-revealed {
-    opacity: 1;
-    transform: none;
-    will-change: auto;
+    animation: revealMobileRise var(--reveal-duration) var(--reveal-ease)
+      backwards;
+  }
+}
+
+/* Hero page-load animation: staged, capped at 240ms of delay. */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  @keyframes revealHeroRise {
+    from {
+      opacity: 0;
+      transform: translate3d(0, var(--reveal-hero-shift), 0);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes revealHeroTitle {
+    from {
+      opacity: var(--reveal-hero-title-opacity);
+      transform: translate3d(0, 8px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes revealHeroVisual {
+    from {
+      opacity: var(--reveal-hero-visual-opacity);
+      transform: translate3d(0, 12px, 0) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  [data-hero] > * {
+    animation: revealHeroRise var(--reveal-hero-duration) var(--reveal-ease)
+      both;
+  }
+
+  [data-hero] > *:nth-child(1) {
+    animation-delay: 0ms;
+  }
+
+  [data-hero] > *:nth-child(2) {
+    animation-delay: calc(var(--reveal-hero-stagger) * 1);
+  }
+
+  [data-hero] > *:nth-child(3) {
+    animation-delay: calc(var(--reveal-hero-stagger) * 2);
+  }
+
+  [data-hero] > *:nth-child(4) {
+    animation-delay: calc(var(--reveal-hero-stagger) * 3);
+  }
+
+  [data-hero] > *:nth-child(5) {
+    animation-delay: calc(var(--reveal-hero-stagger) * 4);
+  }
+
+  [data-hero] > *:nth-child(n+6) {
+    animation-delay: var(--reveal-hero-delay-cap);
+  }
+
+  /* :nth-child(n) lifts specificity above the per-child delay rules so the
+     title always starts at the second step (60ms), on Home and hub pages. */
+  [data-hero] > h1:nth-child(n) {
+    animation-name: revealHeroTitle;
+    animation-delay: var(--reveal-hero-stagger);
+  }
+
+  @media (min-width: 761px) {
+    [data-hero-visual] {
+      animation: revealHeroVisual var(--reveal-hero-duration)
+        var(--reveal-ease) both;
+      animation-delay: 120ms;
+    }
+  }
+}
+
+@media print {
+  [data-reveal],
+  [data-reveal-mobile],
+  [data-reveal-stagger] > *,
+  [data-hero] > *,
+  [data-hero-visual] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
   }
 }
 
@@ -220,9 +432,33 @@ svg {
   }
 
   [data-reveal],
-  [data-reveal-mobile] {
+  [data-reveal-mobile],
+  [data-reveal-stagger] > *,
+  [data-hero] > *,
+  [data-hero-visual] {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+    animation: none !important;
   }
+}
+
+/* Failsafe: JS never handshakes within 3s → show all content. */
+html.reveal-fallback [data-reveal],
+html.reveal-fallback [data-reveal-mobile],
+html.reveal-fallback [data-reveal-stagger] > *,
+html.reveal-fallback [data-hero] > *,
+html.reveal-fallback [data-hero-visual] {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Dynamic content (filter/pagination/deep-link) appears immediately. */
+[data-reveal].is-instant,
+[data-reveal-mobile].is-instant,
+[data-reveal-stagger].is-instant > * {
+  animation-duration: 0ms !important;
+  animation-delay: 0ms !important;
 }

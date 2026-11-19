@@ -62,13 +62,9 @@ export default function Page() {
             title="Dự án — 7 dự án INNTECH hỗ trợ"
             description="Các dự án trong hệ sinh thái CLB, theo hồ sơ dự án THONGTIN (§7) và MOTA (dấu ấn nổi bật). Nhu cầu cộng sự là thông tin mẫu, đang được cập nhật."
           />
-          <div className={styles.projectGrid}>
+          <div className={styles.projectGrid} data-reveal-stagger>
             {projects.map((project) => (
-              <article
-                key={project.id}
-                className={styles.projectCard}
-                data-reveal
-              >
+              <article key={project.id} className={styles.projectCard}>
                 <div
                   className={styles.projectArt}
                   style={{ background: project.gradient }}
@@ -146,9 +142,9 @@ export default function Page() {
             title="Team Profile"
             description="Hồ sơ công khai của các đội dự án, theo THONGTIN §7. Thành viên chưa được công khai được ghi “Đang cập nhật”."
           />
-          <div className={styles.teamGrid}>
+          <div className={styles.teamGrid} data-reveal-stagger>
             {teams.map((team) => (
-              <article key={team.id} className={styles.teamCard} data-reveal>
+              <article key={team.id} className={styles.teamCard}>
                 <div className={styles.teamHead}>
                   <span className={ui.avatar} aria-hidden="true">
                     {teamMonogram(team.project)}
@@ -183,7 +179,7 @@ export default function Page() {
             title="Thành tích — bảng giải thưởng 2026"
             description="Theo THONGTIN §8 và MOTA §Dấu ấn nổi bật."
           />
-          <div className={styles.timelineWrap}>
+          <div className={styles.timelineWrap} data-reveal>
             <div className={ui.timeline}>
               {awards.map((award) => (
                 <div key={award.id} className={ui.timelineItem}>
@@ -210,9 +206,9 @@ export default function Page() {
             title="Tìm cộng sự — vị trí mở (mẫu)"
             description="Board vị trí đang mở trong hệ sinh thái INNTECH. Gửi email tới CLB để đăng ký — dữ liệu vị trí là mẫu."
           />
-          <div className={styles.roleGrid}>
+          <div className={styles.roleGrid} data-reveal-stagger>
             {openRoles.map((role) => (
-              <article key={role.id} className={ui.card} data-reveal>
+              <article key={role.id} className={ui.card}>
                 <div className={ui.cardTop}>
                   <span className={styles.roleCategory}>{role.category}</span>
                   <span className={`${ui.badge} ${ui.badgeSample}`}>

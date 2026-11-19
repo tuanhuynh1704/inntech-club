@@ -67,7 +67,7 @@ export default function Page() {
             description="Ban chủ nhiệm nhiệm kỳ 2025–2026 và 6 ban chuyên môn đồng hành cùng các dự án của CLB."
           />
 
-          <div className={styles.leaderGrid} data-reveal>
+          <div className={styles.leaderGrid} data-reveal-stagger>
             {leaders.map((leader) => (
               <article key={leader.name} className={ui.profileCard}>
                 <span className={ui.avatar} aria-hidden="true">
@@ -87,7 +87,7 @@ export default function Page() {
             2025 (16/11/2025). Nguồn: THONGTIN §2, §6.1; MOTA §Thông tin nhanh.
           </p>
 
-          <div className={styles.departmentGrid} data-reveal>
+          <div className={styles.departmentGrid} data-reveal-stagger>
             {departments.map((department) => (
               <article key={department.number} className={styles.departmentCard}>
                 <span className={styles.departmentNumber}>
@@ -99,7 +99,7 @@ export default function Page() {
             ))}
           </div>
 
-          <div className={styles.activityPanel} data-reveal>
+          <div className={styles.activityPanel} data-reveal-stagger>
             <span className={styles.activityEyebrow}>
               Hoạt động cộng đồng
             </span>
@@ -186,7 +186,7 @@ export default function Page() {
             description="Giải thưởng và công bố khoa học của thành viên CLB trong năm 2026."
           />
 
-          <div className={ui.statStrip} data-reveal>
+          <div className={ui.statStrip} data-reveal-stagger>
             {stats.map((stat) => (
               <div key={stat.label} className={ui.stat}>
                 <span className={ui.statValue}>{stat.value}</span>
@@ -195,7 +195,10 @@ export default function Page() {
             ))}
           </div>
 
-          <ol className={`${ui.timeline} ${styles.plainList}`} data-reveal>
+          <ol
+            className={`${ui.timeline} ${styles.plainList}`}
+            data-reveal-stagger
+          >
             {achievements.map((item) => (
               <li key={item.id} className={ui.timelineItem}>
                 <span className={ui.timelineDate}>{item.year}</span>
@@ -222,7 +225,7 @@ export default function Page() {
             description="Năm 2026 tuyển trong hai vòng: nộp hồ sơ trực tuyến và phỏng vấn."
           />
 
-          <div className={styles.stepsGrid} data-reveal>
+          <div className={styles.stepsGrid} data-reveal-stagger>
             {recruitmentSteps.map((step) => (
               <div key={step.number} className={ui.step}>
                 <span className={ui.stepNumber}>{step.number}</span>

@@ -108,7 +108,7 @@ export default function Page() {
             Mẫu chưa phải sản phẩm chính thức.
           </p>
 
-          <div className={styles.showcaseGrid} data-reveal>
+          <div className={styles.showcaseGrid} data-reveal-stagger>
             {showcaseProducts.map((product) => (
               <article key={product.id} className={styles.showcaseCard}>
                 <div
@@ -151,7 +151,7 @@ export default function Page() {
             Sản phẩm mẫu của sinh viên
             <span className={ui.badgeSample}>Mẫu</span>
           </h3>
-          <div className={styles.sampleGrid} data-reveal>
+          <div className={styles.sampleGrid} data-reveal-stagger>
             {cleanProducts.map((product) => (
               <HubCard key={product.id} item={product} />
             ))}
@@ -231,7 +231,7 @@ export default function Page() {
             description="Gói dịch vụ ghi “Liên hệ báo giá” — CLB không công bố giá trước. Mô tả yêu cầu qua biểu mẫu, đội dự án CLB sẽ xem xét và liên hệ lại."
           />
 
-          <div className={styles.tierGrid} data-reveal>
+          <div className={styles.tierGrid} data-reveal-stagger>
             {serviceTiers.map((tier) => (
               <article key={tier.id} className={styles.tierCard}>
                 <h3 className={styles.tierTitle}>{tier.title}</h3>
@@ -246,9 +246,9 @@ export default function Page() {
             ))}
           </div>
 
-          <div className={styles.stepsBlock} data-reveal>
+          <div className={styles.stepsBlock}>
             <h3 className={styles.stepsTitle}>Quy trình tiếp nhận yêu cầu</h3>
-            <div className={styles.stepsGrid}>
+            <div className={styles.stepsGrid} data-reveal-stagger>
               {requestSteps.map((step) => (
                 <div key={step.number} className={ui.step}>
                   <span className={ui.stepNumber}>{step.number}</span>
@@ -259,7 +259,7 @@ export default function Page() {
             </div>
           </div>
 
-          <div className={styles.formBlock} data-reveal>
+          <div className={styles.formBlock}>
             <RequestForm
               fields={requestFields}
               to={siteEmail}

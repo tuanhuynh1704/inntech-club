@@ -122,7 +122,7 @@ export default function Page() {
             title="Đối tác — doanh nghiệp và trường đại học"
             description="Danh sách thật theo hồ sơ I-Star 2026, phân nhóm. CLB không sử dụng logo giả."
           />
-          <div className={styles.partnerGrid}>
+          <div className={styles.partnerGrid} data-reveal-stagger>
             {partnerGroups.map((group) => (
               <article key={group.id} className={`${ui.card} ${styles.partnerCard}`}>
                 <div className={styles.partnerHead}>
@@ -154,7 +154,7 @@ export default function Page() {
             title="Dịch vụ — đặt hàng và hợp tác"
             description="Liên hệ để trao đổi; CLB tư vấn phương án phù hợp với nhu cầu của từng đối tác."
           />
-          <div className={styles.serviceGrid}>
+          <div className={styles.serviceGrid} data-reveal-stagger>
             {services.map((service) => (
               <article key={service.id} className={ui.card}>
                 <h3 className={ui.cardTitle}>{service.title}</h3>
@@ -187,7 +187,7 @@ export default function Page() {
             title="Quy trình — 4 bước"
             description="Từ yêu cầu ban đầu đến khi triển khai, mọi bước đều có đầu mối rõ ràng từ CLB."
           />
-          <ol className={styles.steps}>
+          <ol className={styles.steps} data-reveal-stagger>
             {processSteps.map((step) => (
               <li key={step.number} className={styles.step}>
                 <span className={styles.stepNumber} aria-hidden="true">
@@ -212,7 +212,7 @@ export default function Page() {
             title="Dự án tiêu biểu & form liên hệ doanh nghiệp"
             description="Chiêm nghiệm năng lực triển khai của CLB qua các case study, sau đó gửi yêu cầu hợp tác — dữ liệu không được lưu trên website."
           />
-          <div className={styles.caseGrid}>
+          <div className={styles.caseGrid} data-reveal-stagger>
             {caseStudies.map((caseStudy) => (
               <article key={caseStudy.id} className={`${ui.card} ${styles.caseCard}`}>
                 <span className={styles.caseField}>{caseStudy.field}</span>

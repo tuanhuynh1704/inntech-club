@@ -359,7 +359,9 @@ const partners = [
 ];
 
 const revealDelay = (index: number): CSSProperties =>
-  ({ "--reveal-delay": `${Math.min(index, 6) * 70}ms` }) as CSSProperties;
+  ({
+    "--reveal-delay": `calc(${Math.min(index, 6)} * var(--reveal-stagger))`,
+  }) as CSSProperties;
 
 export default function Home() {
   return (
@@ -373,7 +375,7 @@ export default function Home() {
           <div className={styles.heroGridPattern} aria-hidden="true" />
 
           <div className={`${styles.container} ${styles.heroInner}`}>
-            <div className={styles.heroCopy}>
+            <div data-hero>
               <div className={styles.heroEyebrow}>
                 <span className={styles.pulseDot} aria-hidden="true" />
                 Câu lạc bộ Công nghệ và Sáng tạo · NTTU
@@ -423,7 +425,11 @@ export default function Home() {
               </div>
             </div>
 
-            <div className={styles.heroVisual} data-reveal-mobile>
+            <div
+              className={styles.heroVisual}
+              data-hero-visual
+              data-reveal-mobile
+            >
               <div className={styles.orbitOne} aria-hidden="true" />
               <div className={styles.orbitTwo} aria-hidden="true" />
 
@@ -469,7 +475,7 @@ export default function Home() {
 
         <section id="hubs" className={`${styles.section} ${styles.hubsSection}`}>
           <div className={styles.container}>
-            <div className={styles.sectionHead}>
+            <div className={styles.sectionHead} data-reveal>
               <p className={styles.eyebrow}>Hệ sinh thái INNTECH</p>
               <h2>10 hub, một nền tảng cho sinh viên.</h2>
               <p>Khám phá các không gian học tập, phát triển dự án và kết nối của INNTECH.</p>
@@ -754,6 +760,7 @@ export default function Home() {
         <section
           id="su-kien"
           className={`${styles.section} ${styles.lazySection}`}
+          data-reveal-scope
         >
           <div className={styles.container}>
             <div className={styles.sectionHead} data-reveal>
@@ -787,6 +794,7 @@ export default function Home() {
 
         <section
           className={`${styles.section} ${styles.sectionDark} ${styles.lazySection}`}
+          data-reveal-scope
         >
           <div className={styles.container}>
             <div className={styles.orgGrid}>
@@ -846,7 +854,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section className={`${styles.section} ${styles.lazySection}`}>
+        <section
+          className={`${styles.section} ${styles.lazySection}`}
+          data-reveal-scope
+        >
           <div className={styles.container}>
             <div className={styles.communityCard} data-reveal>
               <div className={styles.communityCopy}>
@@ -921,6 +932,7 @@ export default function Home() {
         <section
           id="lien-he"
           className={`${styles.ctaSection} ${styles.lazySection}`}
+          data-reveal-scope
         >
           <div className={styles.container}>
             <div className={styles.ctaCard} data-reveal="scale">

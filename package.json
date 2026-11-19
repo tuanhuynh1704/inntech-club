@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "verify": "node tests/verify-platform.js && node tests/verify-exports.js && node tests/verify-library.js"
+    "verify": "node tests/verify-platform.js && node tests/verify-exports.js && node tests/verify-library.js && node tests/verify-reveal.js"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
